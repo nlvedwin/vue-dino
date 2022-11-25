@@ -17,16 +17,10 @@ const setToLoading = () => {
         <d-card>
             <template #header>Basic Button</template>
             <div class="flex items-center space-x-4">
-                <d-button primary>Click Me</d-button>
-                <d-button primary>Click Me</d-button>
-                <d-button danger> Click Me</d-button>
-                <d-button>Click Me</d-button>
-                <d-button primary>
-                    <template #icon> i </template>
-                    Click Me
-                </d-button>
-                <d-button :loading="true">Click Me</d-button>
-                <d-button danger loading>Click Me</d-button>
+                <d-button primary>Primary</d-button>
+                <d-button>Default</d-button>
+                <d-button danger>Danger</d-button>
+                <d-button :loading="true" primary>Click Me</d-button>
             </div>
         </d-card>
     </div>
