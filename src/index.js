@@ -1,4 +1,4 @@
-import * as components from "./components/index"
+import * as components from "./components/index.components"
 import "./assets/css/tailwind.css"
 
 const dinoComponentsList = components?.default

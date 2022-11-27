@@ -13,6 +13,9 @@ export default defineConfig({
             "@": resolve(__dirname, "./src"),
         },
     },
+    optimizeDeps: {
+        include: ["choices.js", "choices/public/assets/styles/choices.min.css"],
+    },
     build: {
         lib: {
             entry: resolve(__dirname, "src/index.js"),

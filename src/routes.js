@@ -17,6 +17,21 @@ const routes = [
         path: "/cards",
         component: () => import("./pages/cards.vue"),
     },
+    {
+        title: "selects",
+        path: "/selects",
+        component: () => import("./pages/selects.vue"),
+    },
+    {
+        title: "tables",
+        path: "/tables",
+        component: () => import("./pages/tables.vue"),
+    },
+    {
+        title: "forms",
+        path: "/forms",
+        component: () => import("./pages/forms.vue"),
+    },
 ]
 
 const router = createRouter({

@@ -5,12 +5,11 @@ console.log(routes)
 
 <template>
     <div class="min-h-screen bg-gray-200 p-6">
-        <div class="bg-white mb-4">
-            <!-- nav links -->
+        <div class="bg-white mb-4 shadow-sm rounded-md">
             <template v-for="route in routes">
                 <router-link
                     :to="route.path"
-                    class="underline inline-block px-4 py-2 capitalize"
+                    class="underline inline-block px-4 py-3 capitalize"
                 >
                     {{ route.title }}
                 </router-link>

@@ -7,3 +7,11 @@
         @apply text-lg font-semibold mb-4;
     }
 }
+
+span.has-error {
+    @apply text-red-500 text-sm mt-1 block;
+}
+
+input.has-error {
+    @apply border-red-500 border-2;
+}

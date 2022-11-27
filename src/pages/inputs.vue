@@ -9,7 +9,8 @@
             quaerat atque eligendi animi ullam amet qui magnam praesentium
             expedita, officiis dicta possimus illum repudiandae laudantium eaque
             accusamus recusandae? Ipsa.
-            <div class="mt-4 max-w-sm">
+            <div class="mt-4 max-w-sm space-y-4">
+                <d-input type="text" placeholder="Sample Input"></d-input>
                 <d-input type="password"></d-input>
             </div>
         </d-card>
