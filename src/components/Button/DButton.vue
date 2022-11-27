@@ -31,7 +31,7 @@ const isDefault = [props.primary, props.danger].every((x) => !x)
         <slot v-else name="icon"></slot>
         <span :class="{ 'ml-2': $slots.icon || loading }">
             <slot v-if="$slots.default"></slot>
-            <templae v-else>{{ label }}</templae>
+            <template v-else>{{ label }}</template>
         </span>
     </button>
 </template>
