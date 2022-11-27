@@ -15,7 +15,10 @@ provide(
 </script>
 
 <template>
-    <form action="">
+    <form action="" @submit.prevent="" class="space-y-3">
         <slot></slot>
+        <div v-if="$slots.footer" class="space-x-3 flex items-center">
+            <slot name="footer"></slot>
+        </div>
     </form>
 </template>

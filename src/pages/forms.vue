@@ -31,32 +31,37 @@ const submit = () => {
     <div>
         <d-card class="max-w-md w-full">
             <template #header>Login Form</template>
-            <d-form :errors="state.errors">
-                <d-form-item label="Email">
-                    <d-input
-                        name="email"
-                        v-model="form.email"
-                        placeholder="Email"
+            <d-form :errors="state.errors" @submit.prevent="submit">
+                <d-input
+                    label="Name"
+                    name="name"
+                    required
+                    v-model="form.name"
+                    placeholder="Enter Name"
+                />
+                <d-input
+                    required
+                    label="Email"
+                    name="email"
+                    v-model="form.email"
+                    placeholder="Email"
+                />
+                <d-input
+                    label="password"
+                    name="password"
+                    type="password"
+                    v-model="form.password"
+                    placeholder="password"
+                />
+                <template #footer>
+                    <d-button
+                        label="Submit"
+                        type="submit"
+                        :loading="loading"
+                        primary
                     />
-                </d-form-item>
-                <d-form-item label="Password">
-                    <d-input
-                        name="password"
-                        type="password"
-                        v-model="form.password"
-                        placeholder="Password"
-                    />
-                </d-form-item>
-                <d-form-item>
-                    <div class="space-x-3 flex items-center">
-                        <d-button :loading="loading" @click="submit" primary
-                            >Submit</d-button
-                        >
-                        <d-button @click="() => (state.errors = {})">
-                            Reset errors
-                        </d-button>
-                    </div>
-                </d-form-item>
+                    <d-button label="Reset Errors" />
+                </template>
             </d-form>
         </d-card>
     </div>
