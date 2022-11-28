@@ -4,14 +4,14 @@
 
 @layer base {
     h1 {
-        @apply text-lg font-semibold mb-4;
+        @apply d-text-lg d-font-semibold d-mb-4;
     }
 }
 
 span.has-error {
-    @apply text-red-500 text-sm mt-1 block;
+    @apply d-text-red-500 d-text-sm d-mt-1 d-block;
 }
 
 input.has-error {
-    @apply border-red-500 border-2;
+    @apply d-border-red-500 d-border-2;
 }

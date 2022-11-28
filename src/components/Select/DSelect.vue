@@ -37,13 +37,10 @@ onMounted(() => {
         classNames: {
             containerOuter: "choices",
             containerInner:
-                "choices-inner bg-white border border-gray-300 rounded-md px-3 py-1 min-h-[2.25rem]",
+                "choices-inner d-bg-white d-border d-border-gray-300 d-rounded-md d-px-3 d-py-1 d-min-h-[2.25rem]",
         },
         removeItemButton: true,
         ...props.options,
-        callbackOnInit: () => {
-            console.log("ready haha")
-        },
     })
 
     selectElement.value.addEventListener("change", (e) => {
@@ -60,7 +57,7 @@ onMounted(() => {
 </script>
 
 <template>
-    <span class="d-select block">
+    <span class="custom-select d-block">
         <select :multiple="multiple" ref="selectElement">
             <option v-if="!multiple" placeholder value="">
                 {{ placeholder }}
@@ -70,15 +67,15 @@ onMounted(() => {
 </template>
 
 <style scoped>
-.d-select:deep() .is-focused .choices-inner {
-    @apply border-primary-500 border-2;
+.custom-select:deep() .is-focused .choices-inner {
+    @apply d-border-primary-500 d-border-2;
 }
 
-.d-select:deep() .choices__input--cloned {
-    @apply bg-transparent mb-0;
+.custom-select:deep() .choices__input--cloned {
+    @apply d-bg-transparent d-mb-0;
 }
 
-.d-select:deep() .choices__input--cloned:focus {
-    @apply bg-transparent border-transparent shadow-none outline-none ring-0;
+.custom-select:deep() .choices__input--cloned:focus {
+    @apply d-bg-transparent d-border-transparent d-shadow-none d-outline-none d-ring-0;
 }
 </style>

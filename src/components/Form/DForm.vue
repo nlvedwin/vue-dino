@@ -15,9 +15,9 @@ provide("formErrors", errors)
 </script>
 
 <template>
-    <form action="" @submit.prevent="" class="space-y-3">
+    <form action="" @submit.prevent="" class="d-space-y-3">
         <slot></slot>
-        <div v-if="$slots.footer" class="space-x-3 flex items-center">
+        <div v-if="$slots.footer" class="d-space-x-3 d-flex d-items-center">
             <slot name="footer"></slot>
         </div>
     </form>

@@ -16,7 +16,7 @@ const setToLoading = () => {
         <h1>Buttons</h1>
         <d-card>
             <template #header>Basic Button</template>
-            <div class="flex items-center space-x-4">
+            <div class="d-flex d-items-center d-space-x-4">
                 <d-button primary>Primary</d-button>
                 <d-button>Default</d-button>
                 <d-button danger>Danger</d-button>

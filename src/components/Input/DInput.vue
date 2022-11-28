@@ -30,18 +30,18 @@ export default {
 </script>
 
 <template>
-    <label class="block">
+    <label class="d-block">
         <span
             v-if="label"
             :class="{ 'has-error': error }"
-            class="mb-2 block text-sm capitalize"
+            class="d-mb-2 d-block d-text-sm d-capitalize"
         >
             {{ label }}
         </span>
         <input
             type="text"
             ref="inputRef"
-            class="block w-full rounded-md border-gray-300 shadow-sm focus:border-primary-500 focus:ring-primary-500 sm:text-sm min-h-[2.25rem]"
+            class="d-block d-w-full d-rounded-md d-border-gray-300 d-shadow-sm d-focus:border-primary-500 d-focus:ring-primary-500 d-sm:text-sm d-min-h-[2.25rem]"
             :class="{ 'has-error': error }"
             v-model="value"
             v-bind="$attrs"

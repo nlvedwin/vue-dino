@@ -29,7 +29,7 @@ const submit = () => {
 
 <template>
     <div>
-        <d-card class="max-w-md w-full">
+        <d-card class="d-max-w-md d-w-full">
             <template #header>Login Form</template>
             {{ form }}
             <d-form :errors="state.errors" @submit.prevent="submit">

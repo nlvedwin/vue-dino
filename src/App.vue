@@ -4,12 +4,12 @@ console.log(routes)
 </script>
 
 <template>
-    <div class="min-h-screen bg-gray-200 p-6">
-        <div class="bg-white mb-4 shadow-sm rounded-md">
+    <div class="d-min-h-screen d-bg-gray-200 d-p-6">
+        <div class="d-bg-white d-mb-4 d-shadow-sm d-rounded-md">
             <template v-for="route in routes">
                 <router-link
                     :to="route.path"
-                    class="underline inline-block px-4 py-3 capitalize"
+                    class="d-underline d-inline-block d-px-4 d-py-3 d-capitalize"
                 >
                     {{ route.title }}
                 </router-link>

@@ -18,9 +18,9 @@ const choices = [
 <template>
     <div>
         <h1>Selects</h1>
-        <d-card class="w-full max-w-md">
+        <d-card class="d-w-full d-max-w-md">
             <template #header>Selects</template>
-            <div class="space-y-3">
+            <div class="d-space-y-3">
                 <d-select
                     placeholder="This is a single placeholder"
                     v-model="myValue"

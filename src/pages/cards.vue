@@ -10,7 +10,7 @@
             harum voluptas cumque deleniti ad non cum saepe eum repellendus,
             eos, voluptatem similique!
             <template #footer>
-                <div class="space-x-2 items-center flex">
+                <div class="d-space-x-2 d-items-center d-flex">
                     <d-button primary>Submit</d-button>
                     <d-button>Cancel</d-button>
                 </div>
