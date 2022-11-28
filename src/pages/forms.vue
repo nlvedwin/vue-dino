@@ -15,6 +15,8 @@ setTimeout(() => {
 const form = reactive({
     email: "",
     password: "",
+    role: "",
+    country: "",
 })
 
 const loading = ref(false)
@@ -31,8 +33,32 @@ const submit = () => {
     <div>
         <d-card class="d-max-w-md d-w-full">
             <template #header>Login Form</template>
-            {{ form }}
+            <div class="d-mb-6">
+                {{ form }}
+            </div>
             <d-form :errors="state.errors" @submit.prevent="submit">
+                <d-input
+                    component="select"
+                    label="Role"
+                    name="Role"
+                    :choices="[
+                        { value: 'admin', label: 'Admin' },
+                        { value: 'user', label: 'User' },
+                    ]"
+                    v-model="form.role"
+                    placeholder="Select Role"
+                />
+                <d-input
+                    component="select"
+                    label="country"
+                    name="country"
+                    :choices="[
+                        { value: 'philippines', label: 'Philippines' },
+                        { value: 'usa', label: 'USA' },
+                    ]"
+                    v-model="form.country"
+                    placeholder="Select country"
+                />
                 <d-input
                     label="Name"
                     name="name"

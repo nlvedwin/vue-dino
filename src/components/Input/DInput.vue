@@ -10,6 +10,8 @@ const error = computed(() => {
 const props = defineProps({
     label: String,
     modelValue: String || Number,
+    component: { type: String, default: "text" },
+    choices: { type: Array, default: () => [] },
 })
 const emit = defineEmits(["update:modelValue", "onUpdate:modelValue"])
 
@@ -38,10 +40,17 @@ export default {
         >
             {{ label }}
         </span>
+        <d-select
+            v-if="component === 'select'"
+            v-bind="$attrs"
+            v-model="value"
+            :choices="choices"
+        />
         <input
+            v-else
             type="text"
             ref="inputRef"
-            class="d-block d-w-full d-rounded-md d-border-gray-300 d-shadow-sm d-focus:border-primary-500 d-focus:ring-primary-500 d-sm:text-sm d-min-h-[2.25rem]"
+            class="d-block d-w-full d-rounded-md d-border-gray-300 d-shadow-sm focus:d-border-primary-500 focus:d-ring-primary-500 sm:d-text-sm d-h-[42px]"
             :class="{ 'has-error': error }"
             v-model="value"
             v-bind="$attrs"

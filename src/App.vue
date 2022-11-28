@@ -1,6 +1,5 @@
 <script setup>
 import { routes } from "./routes"
-console.log(routes)
 </script>
 
 <template>

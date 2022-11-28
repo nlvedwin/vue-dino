@@ -37,22 +37,25 @@ onMounted(() => {
         classNames: {
             containerOuter: "choices",
             containerInner:
-                "choices-inner d-bg-white d-border d-border-gray-300 d-rounded-md d-px-3 d-py-1 d-min-h-[2.25rem]",
+                "choices-inner d-bg-white d-border d-border-gray-300 d-rounded-md d-px-3 d-py-1 d-min-h-[2.25rem] d-h-[42px]",
         },
         removeItemButton: true,
         ...props.options,
     })
 
     selectElement.value.addEventListener("change", (e) => {
-        let values = Array.from(event.target.selectedOptions).map(
+        let values = Array.from(e.target.selectedOptions).map(
             (option) => option.value
         )
         value.value = props.multiple ? values : e.detail?.value
     })
 
-    choicesIntance.setValue(
-        props.multiple ? props.modelValue || [] : [props.modelValue || []]
-    )
+    setTimeout(() => {
+        const propsValue = Array.isArray(props.modelValue)
+            ? props.modelValue
+            : [props.modelValue]
+        choicesIntance.setValue(propsValue.filter((v) => v))
+    })
 })
 </script>
 
@@ -77,5 +80,8 @@ onMounted(() => {
 
 .custom-select:deep() .choices__input--cloned:focus {
     @apply d-bg-transparent d-border-transparent d-shadow-none d-outline-none d-ring-0;
+}
+.custom-select:deep() .choices__placeholder {
+    @apply d-text-base;
 }
 </style>
