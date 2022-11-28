@@ -1,7 +1,7 @@
 <script setup>
 import { inject, computed, ref } from "vue"
-const formErrors = inject("formErrors", null)
 
+const formErrors = inject("formErrors", null)
 const inputRef = ref(null)
 const error = computed(() => {
     return formErrors?.value[inputRef.value?.getAttribute("name")]
@@ -9,6 +9,17 @@ const error = computed(() => {
 
 const props = defineProps({
     label: String,
+    modelValue: String || Number,
+})
+const emit = defineEmits(["update:modelValue", "onUpdate:modelValue"])
+
+const value = computed({
+    get() {
+        return props.modelValue
+    },
+    set(value) {
+        emit("update:modelValue", value)
+    },
 })
 </script>
 
@@ -32,6 +43,7 @@ export default {
             ref="inputRef"
             class="block w-full rounded-md border-gray-300 shadow-sm focus:border-primary-500 focus:ring-primary-500 sm:text-sm min-h-[2.25rem]"
             :class="{ 'has-error': error }"
+            v-model="value"
             v-bind="$attrs"
         />
         <span class="has-error">{{ error }}</span>

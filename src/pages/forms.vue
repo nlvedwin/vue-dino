@@ -31,6 +31,7 @@ const submit = () => {
     <div>
         <d-card class="max-w-md w-full">
             <template #header>Login Form</template>
+            {{ form }}
             <d-form :errors="state.errors" @submit.prevent="submit">
                 <d-input
                     label="Name"

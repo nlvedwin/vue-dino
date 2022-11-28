@@ -1,17 +1,17 @@
 <script setup>
 import { computed } from "@vue/reactivity"
-import { getCurrentInstance, onMounted, provide, useSlots, watch } from "vue"
+import { provide, ref, watch } from "vue"
+
 const props = defineProps({
-    errors: {
-        type: Object,
-        default: () => [],
-    },
+    errors: "",
+})
+const errors = ref({})
+
+watch(props, (value) => {
+    errors.value = { ...props.errors }
 })
 
-provide(
-    "formErrors",
-    computed(() => props.errors)
-)
+provide("formErrors", errors)
 </script>
 
 <template>

@@ -8,6 +8,11 @@ export default defineConfig({
         port: 8200,
     },
     plugins: [vue()],
+    define: {
+        "process.env": {
+            VUE_APP_VERSION: JSON.stringify(require("./package.json").version),
+        },
+    },
     resolve: {
         alias: {
             "@": resolve(__dirname, "./src"),
