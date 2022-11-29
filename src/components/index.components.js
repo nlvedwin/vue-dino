@@ -5,5 +5,15 @@ import DSelect from "./Select/DSelect.vue"
 import DTable from "./Table/DTable.vue"
 import DFormItem from "./Form/DFormItem.vue"
 import DForm from "./Form/DForm.vue"
+import DSwitch from "./Switch/DSwitch.vue"
 
-export default { DButton, DInput, DCard, DSelect, DTable, DFormItem, DForm }
+export default {
+    DButton,
+    DInput,
+    DCard,
+    DSelect,
+    DTable,
+    DFormItem,
+    DForm,
+    DSwitch,
+}

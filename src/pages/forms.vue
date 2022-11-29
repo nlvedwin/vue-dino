@@ -17,6 +17,7 @@ const form = reactive({
     password: "",
     role: "",
     country: "",
+    showCountry: false,
 })
 
 const loading = ref(false)
@@ -46,9 +47,10 @@ const submit = () => {
                         { value: 'user', label: 'User' },
                     ]"
                     v-model="form.role"
-                    placeholder="Select Role"
+                    placeholder="select role"
                 />
                 <d-input
+                    v-if="form.showCountry"
                     component="select"
                     label="country"
                     name="country"
@@ -57,15 +59,17 @@ const submit = () => {
                         { value: 'usa', label: 'USA' },
                     ]"
                     v-model="form.country"
-                    placeholder="Select country"
+                    placeholder="select country"
                 />
                 <d-input
                     label="Name"
                     name="name"
                     required
                     v-model="form.name"
-                    placeholder="Enter Name"
+                    placeholder="enter name"
                 />
+                <!-- Enabled: "bg-indigo-600", Not Enabled: "bg-gray-200" -->
+                <d-switch v-model="form.showCountry"></d-switch>
                 <d-input
                     required
                     label="Email"

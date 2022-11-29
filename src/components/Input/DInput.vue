@@ -50,7 +50,7 @@ export default {
             v-else
             type="text"
             ref="inputRef"
-            class="d-block d-w-full d-rounded-md d-border-gray-300 d-shadow-sm focus:d-border-primary-500 focus:d-ring-primary-500 sm:d-text-sm d-h-[42px]"
+            class="d-block d-w-full d-rounded-md d-border-gray-300 d-shadow-sm focus:d-border-primary-500 focus:d-ring-primary-500 sm:d-text-sm d-h-[42px] d-placeholder:capitalize"
             :class="{ 'has-error': error }"
             v-model="value"
             v-bind="$attrs"
