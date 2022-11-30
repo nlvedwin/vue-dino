@@ -68,8 +68,11 @@ const submit = () => {
                     v-model="form.name"
                     placeholder="enter name"
                 />
-                <!-- Enabled: "bg-indigo-600", Not Enabled: "bg-gray-200" -->
-                <d-switch v-model="form.showCountry"></d-switch>
+                <d-input
+                    component="switch"
+                    v-model="form.showCountry"
+                    label="Show Country"
+                />
                 <d-input
                     required
                     label="Email"

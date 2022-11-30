@@ -34,7 +34,7 @@ export default {
 <template>
     <label class="d-block">
         <span
-            v-if="label"
+            v-if="label && !['switch'].includes(component)"
             :class="{ 'has-error': error }"
             class="d-mb-2 d-block d-text-sm d-capitalize"
         >
@@ -45,6 +45,12 @@ export default {
             v-bind="$attrs"
             v-model="value"
             :choices="choices"
+        />
+        <d-switch
+            v-else-if="component === 'switch'"
+            v-bind="$attrs"
+            v-model="value"
+            :label="label"
         />
         <input
             v-else
