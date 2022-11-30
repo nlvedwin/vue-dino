@@ -6,6 +6,7 @@ import DTable from "./Table/DTable.vue"
 import DFormItem from "./Form/DFormItem.vue"
 import DForm from "./Form/DForm.vue"
 import DSwitch from "./Switch/DSwitch.vue"
+import DModal from "./Modal/DModal.vue"
 
 export default {
     DButton,
@@ -16,4 +17,5 @@ export default {
     DFormItem,
     DForm,
     DSwitch,
+    DModal,
 }

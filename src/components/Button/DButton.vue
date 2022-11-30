@@ -19,7 +19,7 @@ const isDefault = [props.primary, props.danger].every((x) => !x)
                 primary,
             'd-bg-red-500 d- d-border-t-transparent d-text-white d-border-red-500 hover:d-bg-red-600':
                 danger,
-            'd-border d-border-gray-300 d-text-gray-800 hover:d-bg-gray-200':
+            'd-border d-bg-white d-border-gray-300 d-text-gray-800 hover:d-bg-gray-200':
                 isDefault,
         }"
         type="button"

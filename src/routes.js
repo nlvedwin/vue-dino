@@ -32,6 +32,11 @@ const routes = [
         path: "/forms",
         component: () => import("./pages/forms.vue"),
     },
+    {
+        title: "modals",
+        path: "/modals",
+        component: () => import("./pages/modals.vue"),
+    },
 ]
 
 const router = createRouter({

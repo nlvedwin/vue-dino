@@ -6,6 +6,11 @@
     h1 {
         @apply d-text-lg d-font-semibold d-mb-4;
     }
+
+    button[disabled],
+    .d-input-component[disabled] {
+        @apply d-opacity-50 d-pointer-events-none;
+    }
 }
 
 span.has-error {

@@ -32,7 +32,7 @@ export default {
 </script>
 
 <template>
-    <label class="d-block">
+    <label class="d-input d-block">
         <span
             v-if="label && !['switch'].includes(component)"
             :class="{ 'has-error': error }"
@@ -40,27 +40,29 @@ export default {
         >
             {{ label }}
         </span>
-        <d-select
-            v-if="component === 'select'"
-            v-bind="$attrs"
-            v-model="value"
-            :choices="choices"
-        />
-        <d-switch
-            v-else-if="component === 'switch'"
-            v-bind="$attrs"
-            v-model="value"
-            :label="label"
-        />
-        <input
-            v-else
-            type="text"
-            ref="inputRef"
-            class="d-block d-w-full d-rounded-md d-border-gray-300 d-shadow-sm focus:d-border-primary-500 focus:d-ring-primary-500 sm:d-text-sm d-h-[42px] d-placeholder:capitalize"
-            :class="{ 'has-error': error }"
-            v-model="value"
-            v-bind="$attrs"
-        />
+        <span class="d-input-component">
+            <d-select
+                v-if="component === 'select'"
+                v-bind="$attrs"
+                v-model="value"
+                :choices="choices"
+            />
+            <d-switch
+                v-else-if="component === 'switch'"
+                v-bind="$attrs"
+                v-model="value"
+                :label="label"
+            />
+            <input
+                v-else
+                type="text"
+                ref="inputRef"
+                class="d-block d-w-full d-rounded-md d-border-gray-300 d-shadow-sm focus:d-border-primary-500 focus:d-ring-primary-500 sm:d-text-sm d-h-[42px] d-placeholder:capitalize"
+                :class="{ 'has-error': error }"
+                v-model="value"
+                v-bind="$attrs"
+            />
+        </span>
         <span class="has-error">{{ error }}</span>
     </label>
 </template>
