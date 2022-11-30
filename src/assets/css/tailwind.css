@@ -11,6 +11,10 @@
     .d-input-component[disabled] {
         @apply d-opacity-50 d-pointer-events-none;
     }
+
+    a {
+        @apply hover:d-underline d-cursor-pointer;
+    }
 }
 
 span.has-error {

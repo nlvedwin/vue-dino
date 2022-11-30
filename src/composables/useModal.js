@@ -8,11 +8,7 @@ export function useModal(options = {}) {
         data: {},
     })
 
-    const create = (options = {}) => {
-        const confirmOptions = {
-            ...options,
-        }
-
+    const create = () => {
         const container = document.createElement("div")
         container.classList = "d-modal-container"
         document.body.appendChild(container)
@@ -22,10 +18,12 @@ export function useModal(options = {}) {
             render: () =>
                 h(DModal, {
                     modelValue: stateProps.open,
-                    ...confirmOptions,
+                    ...options,
                     onConfirm: () => {
                         if (options.onConfirm) {
-                            options.onConfirm(stateProps.data)
+                            options.onConfirm({
+                                ...stateProps.data,
+                            })
                         } else {
                             stateProps.open = false
                         }
@@ -53,7 +51,7 @@ export function useModal(options = {}) {
     const hide = () => (stateProps.open = false)
 
     onMounted(() => {
-        create(options)
+        create()
     })
 
     return {

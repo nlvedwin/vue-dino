@@ -9,6 +9,7 @@ const error = computed(() => {
 
 const props = defineProps({
     label: String,
+    helpText: String,
     modelValue: String || Number,
     component: { type: String, default: "text" },
     choices: { type: Array, default: () => [] },
@@ -63,6 +64,11 @@ export default {
                 v-bind="$attrs"
             />
         </span>
+        <span
+            v-if="helpText"
+            class="d-inline-block d-mt-1.5 d-text-sm d-text-gray-400"
+            >{{ helpText }}</span
+        >
         <span class="has-error">{{ error }}</span>
     </label>
 </template>

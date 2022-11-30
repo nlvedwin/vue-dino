@@ -1,5 +1,6 @@
 <script setup>
 import { computed, onBeforeUnmount, onMounted, ref } from "vue"
+import IconX from "../Shared/IconX.vue"
 
 const props = defineProps({
     modelValue: Boolean,
@@ -32,6 +33,11 @@ const open = computed({
         openFromTrigger.value = value
     },
 })
+
+const cancel = () => {
+    open.value = false
+    emit("cancel")
+}
 
 const shouldOpen = computed(() => {
     return open.value || openFromTrigger.value
@@ -108,8 +114,18 @@ onMounted(() => {
                         :class="sizeSelected"
                     >
                         <div>
-                            <div class="d-font-semibold d-text-lg">
-                                <slot name="header">{{ headerText }}</slot>
+                            <div
+                                class="d-font-semibold d-text-lg d-flex d-items-center"
+                            >
+                                <div class="d-flex-1">
+                                    <slot name="header">{{ headerText }}</slot>
+                                </div>
+                                <a
+                                    @click="cancel"
+                                    class="d-ml-3 d-inline-block hover:d-text-primary-500"
+                                >
+                                    <IconX />
+                                </a>
                             </div>
                             <div class="d-mt-3 sm:d-mt-5">
                                 <slot name="content">
@@ -122,12 +138,7 @@ onMounted(() => {
                                 <d-button
                                     v-if="showCancel"
                                     :disabled="loading"
-                                    @click="
-                                        () => {
-                                            open = false
-                                            emit('cancel')
-                                        }
-                                    "
+                                    @click="cancel"
                                     :label="cancelText"
                                 />
                                 <d-button

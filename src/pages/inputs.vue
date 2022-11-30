@@ -14,16 +14,15 @@ const country = ref("Philippines")
             quaerat atque eligendi animi ullam amet qui magnam praesentium
             expedita, officiis dicta possimus illum repudiandae laudantium eaque
             accusamus recusandae? Ipsa.
-            <div class="mt-4 max-w-sm space-y-4">
+            <div class="mt-4 d-max-w-sm d-space-y-4 d-mt-6">
                 <d-input
                     v-model="name"
                     type="text"
                     placeholder="Enter Name"
+                    helpText="Enter your full name to secure your account"
                 ></d-input>
-                <span>{{ name }}</span>
                 <d-input type="password"></d-input>
                 <d-input type="text" v-model="country"></d-input>
-                <span>{{ country }}</span>
             </div>
         </d-card>
     </div>
