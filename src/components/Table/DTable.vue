@@ -1,5 +1,6 @@
 <script setup>
 import { computed, getCurrentInstance } from "vue"
+import Pagination from "./Pagination.vue"
 const uid = getCurrentInstance().uid
 const props = defineProps({
     columns: { type: Array, default: () => [] },
@@ -81,6 +82,10 @@ const isCheckedAll = computed(() => {
                 </tr>
             </tbody>
         </table>
-        <template #footer> footer coming... </template>
+        <template #footer>
+            <div class="d-flex d-justify-end">
+                <Pagination />
+            </div>
+        </template>
     </d-card>
 </template>
