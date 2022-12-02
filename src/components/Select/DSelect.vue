@@ -2,6 +2,7 @@
 import Choices from "choices.js"
 import "choices.js/public/assets/styles/choices.min.css"
 import { onMounted, ref, computed } from "vue"
+import { defaults } from "../common"
 const emit = defineEmits(["update:modelValue"])
 
 const selectElement = ref()
@@ -11,7 +12,9 @@ const props = defineProps({
     multiple: { type: Boolean, default: false },
     choices: { type: Array, default: () => [] },
     placeholder: String,
+    size: { type: String, default: "md" },
 })
+const selectedSize = defaults.size[props.size]
 
 const value = computed({
     get() {
@@ -36,8 +39,7 @@ onMounted(() => {
         })),
         classNames: {
             containerOuter: "choices",
-            containerInner:
-                "choices-inner d-bg-white d-border d-border-gray-300 d-rounded-md d-px-3 d-py-1 d-min-h-[2.25rem] d-h-[42px]",
+            containerInner: `choices-inner d-flex d-items-center d-bg-white d-border d-border-gray-300 d-rounded-md d-px-3 d-py-1 ${selectedSize}`,
         },
         removeItemButton: true,
         ...props.options,
@@ -72,6 +74,10 @@ onMounted(() => {
 <style scoped>
 .custom-select:deep() .is-focused .choices-inner {
     @apply d-border-primary-500 d-border-2;
+}
+
+.custom-select:deep() .choices__item {
+    /* @apply d-mb-0; */
 }
 
 .custom-select:deep() .choices__input--cloned {

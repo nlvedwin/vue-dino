@@ -20,9 +20,15 @@ const country = ref("Philippines")
                     type="text"
                     placeholder="Enter Name"
                     helpText="Enter your full name to secure your account"
-                ></d-input>
-                <d-input type="password"></d-input>
-                <d-input type="text" v-model="country"></d-input>
+                />
+                <d-input placeholder="Enter your password" type="password" />
+                <d-input placeholder="Enter Number" type="number" />
+                <d-input type="text" v-model="country" />
+                <d-input
+                    placeholder="With Error"
+                    type="text"
+                    error="Something went wrong"
+                />
             </div>
         </d-card>
     </div>

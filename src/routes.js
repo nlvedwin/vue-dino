@@ -37,6 +37,16 @@ const routes = [
         path: "/modals",
         component: () => import("./pages/modals.vue"),
     },
+    {
+        title: "date-pickers",
+        path: "/date-pickers",
+        component: () => import("./pages/date-pickers.vue"),
+    },
+    {
+        title: "checkboxes",
+        path: "/checkboxes",
+        component: () => import("./pages/checkboxes.vue"),
+    },
 ]
 
 const router = createRouter({

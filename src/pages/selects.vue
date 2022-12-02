@@ -33,6 +33,7 @@ const choices = [
                     v-model="myValueMultiple"
                     :choices="choices"
                 ></d-select>
+                <d-input label="Enter Name"></d-input>
                 <span>{{ myValueMultiple }}</span>
             </div>
         </d-card>

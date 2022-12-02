@@ -25,6 +25,7 @@
     "dependencies": {
         "@tailwindcss/forms": "^0.5.3",
         "choices.js": "^10.1.0",
+        "flatpickr": "^4.6.13",
         "vue": "^3.2.41",
         "vue-router": "^4.0.13"
     },
