@@ -24,6 +24,8 @@
     },
     "dependencies": {
         "@tailwindcss/forms": "^0.5.3",
+        "@vueuse/core": "^9.6.0",
+        "axios": "^1.2.0",
         "choices.js": "^10.1.0",
         "flatpickr": "^4.6.13",
         "vue": "^3.2.41",

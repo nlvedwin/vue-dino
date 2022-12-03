@@ -8,7 +8,8 @@
     }
 
     button[disabled],
-    .d-input-component[disabled] {
+    .d-input-component[disabled],
+    a[disabled="true"] {
         @apply d-opacity-50 d-pointer-events-none;
     }
 

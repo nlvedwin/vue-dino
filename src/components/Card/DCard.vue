@@ -6,7 +6,7 @@ defineProps({
 </script>
 
 <template>
-    <div class="d-bg-white d-rounded-md d-shadow d-inline-block">
+    <div class="d-bg-white d-rounded-md d-shadow d-inline-block d-w-full">
         <div
             v-if="$slots.header || title"
             class="d-px-5 d-py-4 d-border-b d-text-lg d-font-semibold"

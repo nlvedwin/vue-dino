@@ -1,4 +1,30 @@
-<script setup></script>
+<script setup>
+import { computed } from "vue"
+const emit = defineEmits(["update:modelValue", "onUpdate:modelValue"])
+const props = defineProps({
+    modelValue: { type: Number || String },
+    total: { type: Number, default: 0 },
+    perPage: { type: Number, default: 10 },
+    currentPage: { type: Number, default: 1 },
+})
+
+const pages = computed(() => {
+    return Math.ceil(props.total / props.perPage)
+})
+
+const value = computed({
+    get() {
+        return props.modelValue
+    },
+    set(value) {
+        emit("update:modelValue", value)
+    },
+})
+
+const handlePageClick = (page) => {
+    value.value = Number(page)
+}
+</script>
 
 <template>
     <div>
@@ -7,7 +33,8 @@
             aria-label="Pagination"
         >
             <a
-                href="#"
+                :disabled="value === 1"
+                @click="handlePageClick(value - 1)"
                 class="d-relative d-inline-flex d-items-center d-rounded-l-md d-border d-border-gray-300 d-bg-white d-px-2 d-py-2 d-text-sm d-font-medium d-text-gray-500 hover:d-bg-gray-50 focus:d-z-20"
             >
                 <span class="d-sr-only">Previous</span>
@@ -27,43 +54,27 @@
                 </svg>
             </a>
             <!-- Current: "d-z-10 d-bg-primary-50 d-border-primary-500 d-text-primary-600", Default: "d-bg-white d-border-gray-300 d-text-gray-500 hover:d-bg-gray-50" -->
-            <a
+            <!-- <a
                 href="#"
                 aria-current="page"
-                class="d-relative d-z-10 d-inline-flex d-items-center d-border d-border-primary-500 d-bg-primary-50 d-px-4 d-py-2 d-text-sm d-font-medium d-text-primary-600 focus:d-z-20"
-                >1</a
-            >
+                class="d-relative d-z-10 d-inline-flex d-items-center d-border d-border-primary-500 d-bg-primary-50 d-text-primary-600 d-px-3 d-py-2 d-text-sm d-font-medium  focus:d-z-20"
+                >{{link.label}}</a
+            > -->
+            <template v-for="page in pages">
+                <a
+                    @click="handlePageClick(page)"
+                    class="d-relative d-inline-flex d-items-center d-border d-border-gray-300 d-bg-white d-px-3 d-py-2 d-text-sm d-font-medium hover:d-bg-gray-50 focus:d-z-20"
+                    :class="{
+                        'd-border-2 d-border-primary-400 d-text-primary-500  hover:d-bg-primary-100':
+                            value === page,
+                    }"
+                >
+                    {{ page }}
+                </a>
+            </template>
             <a
-                href="#"
-                class="d-relative d-inline-flex d-items-center d-border d-border-gray-300 d-bg-white d-px-4 d-py-2 d-text-sm d-font-medium d-text-gray-500 hover:d-bg-gray-50 focus:d-z-20"
-                >2</a
-            >
-            <a
-                href="#"
-                class="d-relative d-hidden d-items-center d-border d-border-gray-300 d-bg-white d-px-4 d-py-2 d-text-sm d-font-medium d-text-gray-500 hover:d-bg-gray-50 focus:d-z-20 md:d-inline-flex"
-                >3</a
-            >
-            <span
-                class="d-relative d-inline-flex d-items-center d-border d-border-gray-300 d-bg-white d-px-4 d-py-2 d-text-sm d-font-medium d-text-gray-700"
-                >...</span
-            >
-            <a
-                href="#"
-                class="d-relative d-hidden d-items-center d-border d-border-gray-300 d-bg-white d-px-4 d-py-2 d-text-sm d-font-medium d-text-gray-500 hover:d-bg-gray-50 focus:d-z-20 md:d-inline-flex"
-                >8</a
-            >
-            <a
-                href="#"
-                class="d-relative d-inline-flex d-items-center d-border d-border-gray-300 d-bg-white d-px-4 d-py-2 d-text-sm d-font-medium d-text-gray-500 hover:d-bg-gray-50 focus:d-z-20"
-                >9</a
-            >
-            <a
-                href="#"
-                class="d-relative d-inline-flex d-items-center d-border d-border-gray-300 d-bg-white d-px-4 d-py-2 d-text-sm d-font-medium d-text-gray-500 hover:d-bg-gray-50 focus:d-z-20"
-                >10</a
-            >
-            <a
-                href="#"
+                :disabled="value === pages"
+                @click="handlePageClick(value + 1)"
                 class="d-relative d-inline-flex d-items-center d-rounded-r-md d-border d-border-gray-300 d-bg-white d-px-2 d-py-2 d-text-sm d-font-medium d-text-gray-500 hover:d-bg-gray-50 focus:d-z-20"
             >
                 <span class="d-sr-only">Next</span>
