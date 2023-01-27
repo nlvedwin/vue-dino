@@ -13,6 +13,7 @@ const props = defineProps({
     choices: { type: Array, default: () => [] },
     placeholder: String,
     size: { type: String, default: "md" },
+    searchable: { type: Boolean, default: false },
 })
 const selectedSize = defaults.size[props.size]
 
@@ -26,46 +27,66 @@ const value = computed({
 })
 
 onMounted(() => {
-    const choicesIntance = new Choices(selectElement.value, {
-        allowHTML: true,
-        placeholder: true,
-        placeholderValue: props.placeholder || "Select an option",
-        searchPlaceholderValue: props.searchPlaceHolder || "Search an option",
-        choices: props.choices.map((choice) => ({
-            value: choice.value,
-            label: choice.label,
-            selected: choice.value === props.modelValue,
-            id: choice.value,
-        })),
-        classNames: {
-            containerOuter: "choices",
-            containerInner: `choices-inner d-flex d-items-center d-bg-white d-border d-border-gray-300 d-rounded-md d-px-3 d-py-1 ${selectedSize}`,
-        },
-        removeItemButton: true,
-        ...props.options,
-    })
+    if (props.searchable) {
+        const choicesIntance = new Choices(selectElement.value, {
+            allowHTML: true,
+            placeholder: true,
+            placeholderValue: props.placeholder || "Select an option",
+            searchPlaceholderValue:
+                props.searchPlaceHolder || "Search an option",
+            choices: props.choices.map((choice) => ({
+                value: choice.value,
+                label: choice.label,
+                selected: choice.value === props.modelValue,
+                id: choice.value,
+            })),
+            classNames: {
+                containerOuter: "choices",
+                containerInner: `choices-inner d-flex d-items-center d-bg-white d-border d-border-gray-300 d-rounded-md d-px-3 d-py-1 ${selectedSize}`,
+            },
+            removeItemButton: true,
+            ...props.options,
+        })
+
+        setTimeout(() => {
+            const propsValue = Array.isArray(props.modelValue)
+                ? props.modelValue
+                : [props.modelValue]
+            choicesIntance.setValue(propsValue.filter((v) => v))
+        })
+    }
 
     selectElement.value.addEventListener("change", (e) => {
-        let values = Array.from(e.target.selectedOptions).map(
-            (option) => option.value
-        )
-        value.value = props.multiple ? values : e.detail?.value
-    })
-
-    setTimeout(() => {
-        const propsValue = Array.isArray(props.modelValue)
-            ? props.modelValue
-            : [props.modelValue]
-        choicesIntance.setValue(propsValue.filter((v) => v))
+        if (props.searchable) {
+            let values = Array.from(e.target.selectedOptions).map(
+                (option) => option.value
+            )
+            value.value = props.multiple ? values : e.detail?.value
+        } else {
+            value.value = e.target.value
+        }
     })
 })
 </script>
 
 <template>
     <span class="custom-select d-block">
-        <select :multiple="multiple" ref="selectElement">
+        <select v-if="searchable" :multiple="multiple" ref="selectElement">
             <option v-if="!multiple" placeholder value="">
                 {{ placeholder }}
+            </option>
+        </select>
+        <select
+            v-else
+            class="d-block d-w-full d-rounded-md d-border-gray-300 d-shadow-sm focus:d-border-primary-500 focus:d-ring-primary-500 sm:d-text-sm d-placeholder:capitalize"
+            :class="[selectedSize]"
+            ref="selectElement"
+        >
+            <option placeholder value="">
+                {{ placeholder }}
+            </option>
+            <option v-for="choice in choices" :value="choice.value">
+                {{ choice.label }}
             </option>
         </select>
     </span>
