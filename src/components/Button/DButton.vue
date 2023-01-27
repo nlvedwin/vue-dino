@@ -41,7 +41,10 @@ const selectedSize = defaults.size[props.size]
             v-if="loading"
         />
         <slot v-else name="icon"></slot>
-        <span :class="{ 'd-ml-2': $slots.icon || loading }">
+        <span
+            class="d-text-center d-w-full"
+            :class="{ 'd-ml-2': $slots.icon || loading }"
+        >
             <slot v-if="$slots.default"></slot>
             <template v-else>{{ label }}</template>
         </span>

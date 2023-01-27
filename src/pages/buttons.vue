@@ -29,6 +29,10 @@ const setToLoading = () => {
                 <d-button size="md" primary>Medium</d-button>
                 <d-button size="lg" primary>Large</d-button>
             </div>
+
+            <div class="d-max-w-md">
+                <d-button class="d-w-full" primary>wew</d-button>
+            </div>
         </d-card>
     </div>
 </template>

@@ -16,5 +16,9 @@
                 </div>
             </template>
         </d-card>
+
+        <div class="d-mt-4">
+            <d-card title="Edwin Encomienda"> Edwin </d-card>
+        </div>
     </div>
 </template>
