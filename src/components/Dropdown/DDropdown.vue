@@ -63,12 +63,7 @@ watch(open, () => {
                     tabindex="-1"
                 >
                     <div class="d-py-1" role="none">
-                        <!-- Active: "d-bg-gray-100 d-text-gray-900", Not Active: "d-text-gray-700" -->
-                        <d-dropdown-item> Account Settings </d-dropdown-item>
-                        <d-dropdown-item as="button"> Profile </d-dropdown-item>
-                        <d-dropdown-item as="button">
-                            Sign Out
-                        </d-dropdown-item>
+                        <slot />
                     </div>
                 </div>
             </Transition>
