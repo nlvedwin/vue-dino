@@ -18,6 +18,7 @@
     "scripts": {
         "dev": "vite",
         "build": "vite build",
+        "build-site": "export DOCS=true && vite build",
         "build:lib": "vite build",
         "preview": "vite preview",
         "publish:lib": "vite build && npm publish"
