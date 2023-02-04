@@ -3,6 +3,10 @@ import { ref, watch } from "vue"
 const open = ref(false)
 const horizonTalPosition = ref("left")
 
+defineProps({
+    width: { type: Number, default: 220 },
+})
+
 // if div is outside the view port log it
 const checkVisible = () => {
     const div = document.querySelector(".d-dropdown-card")
@@ -25,6 +29,12 @@ watch(open, () => {
         checkVisible()
     })
 })
+</script>
+
+<script>
+export default {
+    inheritAttrs: false,
+}
 </script>
 
 <template>
@@ -51,7 +61,7 @@ watch(open, () => {
             >
                 <div
                     v-if="open"
-                    class="d-dropdown-card d-absolute d-z-10 d-mt-2 d-w-56 d-rounded-md d-bg-white d-shadow-lg d-ring-1 d-ring-black d-ring-opacity-5 focus:d-outline-none"
+                    class="d-dropdown-card d-absolute d-z-10 d-mt-2 d-rounded-md d-bg-white d-shadow-lg d-ring-1 d-ring-black d-ring-opacity-5 focus:d-outline-none"
                     :class="
                         horizonTalPosition === 'right'
                             ? 'd-right-0 d-left-auto'
@@ -61,6 +71,7 @@ watch(open, () => {
                     aria-orientation="vertical"
                     aria-labelledby="menu-button"
                     tabindex="-1"
+                    :style="{ width: width + 'px' }"
                 >
                     <div class="d-py-1" role="none">
                         <slot />
