@@ -31,8 +31,18 @@ const setToLoading = () => {
             </div>
 
             <div class="d-max-w-md">
-                <d-button class="d-w-full" primary>wew</d-button>
+                <d-button :loading="true" class="d-w-full" primary
+                    >wew</d-button
+                >
             </div>
         </d-card>
+
+        <div></div>
+
+        <div class="d-max-w-md d-w-full">
+            <d-card class="d-mt-6" title="Sign in to Appllication">
+                <d-button primary class="d-w-full">Sign to account</d-button>
+            </d-card>
+        </div>
     </div>
 </template>

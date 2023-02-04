@@ -1,7 +1,5 @@
-<template>
-    <div>index page</div>
-</template>
+<script setup></script>
 
-<script>
-export default {}
-</script>
+<template>
+    <div>Home</div>
+</template>

@@ -94,7 +94,10 @@ const submit = () => {
                         :loading="loading"
                         primary
                     />
-                    <d-button label="Reset Errors" />
+                    <d-button
+                        @click="state.errors = null"
+                        label="Reset Errors"
+                    />
                 </template>
             </d-form>
         </d-card>

@@ -59,6 +59,6 @@ onMounted(() => {
 }
 
 .flatpickr-calendar {
-    @apply d-p-4;
+    /* @apply d-p-4; */
 }
 </style>

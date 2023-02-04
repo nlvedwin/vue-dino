@@ -22,11 +22,11 @@ const selectedSize = defaults.size[props.size]
                     loading,
                 'd-bg-primary-500 d-border-t-transparent d-text-white d-border-primary-500 hover:d-bg-primary-600':
                     primary && !outlined,
-                'd-border-primary-500 d-text-primary-500 d-border hover:d-bg-gray-100':
+                'd-border-primary-500 d-text-primary-500 d-border hover:d-bg-gray-50':
                     primary && outlined,
                 'd-bg-red-500 d- d-border-t-transparent d-text-white d-border-red-500 hover:d-bg-red-600':
                     danger && !outlined,
-                'd-border-red-500 d-text-red-500 d-border hover:d-bg-gray-100':
+                'd-border-red-500 d-text-red-500 d-border hover:d-bg-gray-50':
                     danger && outlined,
                 'd-border d-bg-white d-border-gray-300 d-text-gray-800 hover:d-bg-gray-200':
                     isDefault,

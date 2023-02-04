@@ -42,7 +42,7 @@ onMounted(() => {
             })),
             classNames: {
                 containerOuter: "choices",
-                containerInner: `choices-inner d-flex d-items-center d-bg-white d-border d-border-gray-300 d-rounded-md d-px-3 d-py-1 ${selectedSize}`,
+                containerInner: `choices-inner d-block d-items-center d-bg-white d-border d-border-gray-300 d-rounded-md d-px-3 d-py-1 ${selectedSize}`,
             },
             removeItemButton: true,
             ...props.options,
@@ -110,5 +110,13 @@ onMounted(() => {
 }
 .custom-select:deep() .choices__placeholder {
     @apply d-text-base;
+}
+
+.custom-select:deep() .choices__list--multiple .choices__item {
+    @apply d-bg-primary-500 d-rounded-lg d-border-none;
+}
+
+.custom-select:deep() .choices__list--multiple button {
+    @apply d-border-none;
 }
 </style>

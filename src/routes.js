@@ -1,52 +1,20 @@
 import { createRouter, createWebHistory } from "vue-router"
 
+// import all files in the pages directory
+const pages = import.meta.globEager("./pages/*.vue")
+const routePages = []
+for (const path in pages) {
+    const name = path.split("/").pop().split(".")[0]
+    routePages.push({
+        title: name,
+        path: `/${name}`,
+        component: pages[path].default,
+    })
+}
+
 const routes = [
     { title: "Home", path: "/", component: () => import("./pages/index.vue") },
-    {
-        title: "Buttons",
-        path: "/buttons",
-        component: () => import("./pages/buttons.vue"),
-    },
-    {
-        title: "Inputs",
-        path: "/inputs",
-        component: () => import("./pages/inputs.vue"),
-    },
-    {
-        title: "cards",
-        path: "/cards",
-        component: () => import("./pages/cards.vue"),
-    },
-    {
-        title: "selects",
-        path: "/selects",
-        component: () => import("./pages/selects.vue"),
-    },
-    {
-        title: "tables",
-        path: "/tables",
-        component: () => import("./pages/tables.vue"),
-    },
-    {
-        title: "forms",
-        path: "/forms",
-        component: () => import("./pages/forms.vue"),
-    },
-    {
-        title: "modals",
-        path: "/modals",
-        component: () => import("./pages/modals.vue"),
-    },
-    {
-        title: "date-pickers",
-        path: "/date-pickers",
-        component: () => import("./pages/date-pickers.vue"),
-    },
-    {
-        title: "checkboxes",
-        path: "/checkboxes",
-        component: () => import("./pages/checkboxes.vue"),
-    },
+    ...routePages,
 ]
 
 const router = createRouter({

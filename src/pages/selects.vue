@@ -7,11 +7,15 @@ const choices1 = [
     { value: "one", label: "Elon" },
     { value: "two", label: "Judy" },
     { value: "three", label: "Edwin" },
+    { value: "three", label: "Nicole" },
+    { value: "three", label: "Isang" },
 ]
 const choices = [
     { value: "one", label: "Elon" },
     { value: "two", label: "Judy" },
     { value: "three", label: "Edwin" },
+    { value: "three", label: "Nicole" },
+    { value: "three", label: "Isang" },
 ]
 </script>
 
