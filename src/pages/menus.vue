@@ -69,7 +69,11 @@ const collapsed = ref(false)
     <button @click="collapsed = !collapsed">collapsed</button>
   </div>
   <div class="d-flex d-space-x-6">
-    <d-sidebar>
+    <d-sidebar :collapsed="collapsed">
+      <template #header>
+        <span v-if="collapsed">N</span>
+        <span v-else>NetlinkVoice</span>
+      </template>
       <d-menu v-model="active" :collapsed="collapsed">
         <template v-for="link in links">
           <d-menu-item v-if="!link.children" :value="link.name">
@@ -92,8 +96,8 @@ const collapsed = ref(false)
         </template>
       </d-menu>
     </d-sidebar>
-    <d-sidebar class="d-bg-gray-800">
-      <d-menu v-model="active" dark :collapsed="collapsed">
+    <d-sidebar class="d-bg-gray-800" dark :collapsed="collapsed">
+      <d-menu v-model="active" dark>
         <template v-for="link in links">
           <d-menu-item v-if="!link.children" :value="link.name">
             <template #icon>
@@ -115,8 +119,8 @@ const collapsed = ref(false)
         </template>
       </d-menu>
     </d-sidebar>
-    <d-sidebar class="d-bg-sky-500">
-      <d-menu v-model="active" dark :collapsed="collapsed">
+    <d-sidebar class="d-bg-sky-500" dark :collapsed="collapsed">
+      <d-menu v-model="active" dark>
         <template v-for="link in links">
           <d-menu-item v-if="!link.children" :value="link.name">
             <template #icon>

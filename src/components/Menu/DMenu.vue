@@ -1,11 +1,11 @@
 <script setup>
-import { ref, provide, computed, watch } from 'vue'
+import { ref, provide, computed, inject } from 'vue'
 
 const props = defineProps({
   modelValue: String,
   dark: Boolean,
-  collapsed: Boolean,
 })
+const { collapsed } = inject('collapsed')
 const emit = defineEmits(['update:modelValue', 'onUpdate:modelValue'])
 
 const activeItem = computed({
@@ -30,14 +30,11 @@ provide('activeItem', {
 provide('dark', {
   dark: props.dark,
 })
-provide('collapsed', {
-  collapsed: computed(() => props.collapsed),
-})
 </script>
 
 <template>
   <div
-    class="d-menu d-flex-col d-flex"
+    class="d-menu d-flex-col d-flex d-transition-all d-mx-auto"
     :class="{ 'd-bg-white': !dark, 'd-max-w-[fit-content]': collapsed }"
   >
     <slot></slot>
