@@ -71,7 +71,7 @@ onMounted(() => {
         <slot name="icon"></slot>
       </span>
       <span
-        class="d-flex-1 d-text-value d-transition-all d-overflow-hidden d-block d-duration-200"
+        class="d-flex-1 d-text-value d-transition-all d-overflow-hidden d-block d-duration-200 d-font-medium"
         :class="{
           'd-pl-0': $slots.icon,
           'd-max-w-[1000px] d-px-4 d-py-2 d-opacity-100': !collapsed,
