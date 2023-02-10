@@ -71,7 +71,6 @@ onMounted(() => {
     <d-sidebar
       @collapse="collapsed = $event"
       :collapsed="collapsed"
-      dark
       class="d-bg-white"
       :width="280"
     >
@@ -91,8 +90,8 @@ onMounted(() => {
             v-if="!link.children"
             :value="link.name"
             :class="{
-              'd-bg-sky-50 d-text-sky-500': active === link.name,
-              'hover:d-bg-sky-50 hover:d-text-sky-500': true,
+              'hover:d-bg-sky-100 hover:d-text-sky-500': true,
+              'd-bg-sky-100 d-text-sky-500': active === link.name,
             }"
           >
             <template #icon>
@@ -103,8 +102,8 @@ onMounted(() => {
           <d-submenu-item
             v-else
             :class="{
-              'd-bg-sky-50 d-text-sky-500': active === link.name,
-              'hover:d-bg-sky-50 hover:d-text-sky-500': true,
+              'hover:d-bg-sky-100 hover:d-text-sky-500': true,
+              'd-bg-sky-100 d-text-sky-500': active === link.name,
             }"
           >
             <template #icon>
@@ -116,8 +115,8 @@ onMounted(() => {
                 v-for="child in link.children"
                 :value="child.name"
                 :class="{
-                  'd-bg-sky-50 d-text-sky-500': active === child.name,
-                  'hover:d-bg-sky-50 hover:d-text-sky-500': true,
+                  'd-bg-sky-100 d-text-sky-500': active === child.name,
+                  'hover:d-bg-sky-100 hover:d-text-sky-500': true,
                 }"
               >
                 {{ child.name }}

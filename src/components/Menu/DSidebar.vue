@@ -26,7 +26,7 @@ provide('collapsed', {
       v-if="$slots.header"
       class="d-mb-4 d-px-4 d-font-semibold d-tracking-wide d-mx-auto"
       :class="[
-        { 'd-text-white': dark },
+        { 'd-text-gray-100': dark, 'd-text-gray-600': !dark },
         collapsed
           ? 'd-space-y-3 d-space-y-reverse d-flex d-flex-col-reverse'
           : 'd-flex d-items-center d-space-x-3',
@@ -43,12 +43,12 @@ provide('collapsed', {
           <IconLayoutSidebarLeftCollapse
             v-if="!collapsed"
             size="25"
-            class="d-text-gray-600 hover:d-text-primary-500 d-cursor-pointer"
+            class="hover:d-text-primary-500 d-cursor-pointer"
           />
           <IconLayoutSidebarRightCollapse
             v-else
             size="25"
-            class="d-text-gray-600 hover:d-text-primary-500 d-cursor-pointer"
+            class="hover:d-text-primary-500 d-cursor-pointer"
           />
         </span>
       </d-tooltip>

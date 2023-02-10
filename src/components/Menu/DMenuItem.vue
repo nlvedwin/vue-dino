@@ -38,7 +38,6 @@ export default { inheritAttrs: false }
     :disabled="!collapsed"
   >
     <a
-      v-bind="$attrs"
       @click="handleClick"
       class="d-text-sm d-flex d-items-center d-w-full d-transition-all d-duration-200 hover:d-no-underline d-select-none d-rounded-lg d-min-h-[40px]"
       ref="itemElement"
@@ -46,11 +45,15 @@ export default { inheritAttrs: false }
         // active
         'd-active-menu-item': isActive,
         'd-bg-gray-100': !dark && isActive,
-        'd-bg-white d-bg-opacity-20 hover:d-bg-opacity-20': dark && isActive,
+        'd-bg-white d-text-gray-100 d-bg-opacity-20 hover:d-bg-opacity-20':
+          dark && isActive,
 
-        'd-text-white hover:d-bg-white hover:d-bg-opacity-20': dark,
-        'd-text-gray-600 hover:d-bg-gray-100': !dark,
+        // inactive
+        'd-text-gray-100 hover:d-bg-white hover:d-bg-opacity-20':
+          dark && !isActive,
+        'd-text-gray-600 hover:d-bg-gray-100': !dark && !isActive,
       }"
+      v-bind="$attrs"
     >
       <span class="d-flex d-items-center d-w-full">
         <span class="d-px-4 d-py-2" v-if="$slots.icon">
