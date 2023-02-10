@@ -13,7 +13,7 @@ for (const path in pages) {
 }
 
 const routes = [
-  { title: 'Home', path: '/', component: () => import('./pages/index.vue') },
+  { title: 'Home', path: '/', component: () => import('./pages/home.vue') },
   ...routePages,
 ]
 
