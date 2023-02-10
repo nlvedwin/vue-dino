@@ -16,7 +16,7 @@ provide('collapsed', {
 <template>
   <div
     :style="{ maxWidth: collapsed ? '80px' : `${width}px` }"
-    class="d-sidebar d-min-h-[500px] d-bg-white d-p-2 d-py-3 d-w-full d-transition-all d-flex d-flex-col"
+    class="d-sidebar d-min-h-[500px] d-bg-white d-p-2 d-py-3 d-w-full d-transition-all d-flex d-flex-col d-flex-shrink-0"
   >
     <div
       v-if="$slots.header"

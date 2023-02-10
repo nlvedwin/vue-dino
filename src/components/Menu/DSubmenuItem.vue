@@ -15,18 +15,18 @@ onMounted(() => {
 const showDropdown = ref(false)
 </script>
 
+<script>
+export default {
+  inheritAttrs: false,
+}
+</script>
+
 <template>
   <div
     @click.stop="open = !open"
     class="d-submenu d-bg-transparent d-flex d-flex-col d-items-center d-select-none d-flex-1 d-relative"
   >
-    <!-- <div
-      v-if="collapsed && showDropdown"
-      class="d-absolute d-right-0 -d-mr-[500%] d-w-[260px] d-bg-white d-px-4 d-py-3 d-rounded-lg d-my-auto d-z-10"
-    >
-      <slot name="submenu"></slot>
-    </div> -->
-    <d-menu-item @mouseover="showDropdown = true">
+    <d-menu-item @mouseover="showDropdown = true" :class="$attrs.class">
       <template #icon>
         <slot name="icon"></slot>
       </template>
