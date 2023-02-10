@@ -49,7 +49,7 @@ export default { inheritAttrs: false }
         'd-bg-white d-bg-opacity-20 hover:d-bg-opacity-20': dark && isActive,
 
         'd-text-white hover:d-bg-white hover:d-bg-opacity-20': dark,
-        'hover:d-bg-gray-100': !dark,
+        'd-text-gray-600 hover:d-bg-gray-100': !dark,
       }"
     >
       <span class="d-flex d-items-center d-w-full">
