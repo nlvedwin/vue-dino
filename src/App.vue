@@ -1,6 +1,5 @@
 <script setup>
-import { onMounted, ref, provide } from 'vue'
-import { useRouter, useRoute } from 'vue-router'
+import { ref, provide } from 'vue'
 import { routes } from './routes'
 const showNav = ref(true)
 provide('showNav', {
