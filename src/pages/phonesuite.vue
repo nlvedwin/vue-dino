@@ -1,8 +1,6 @@
 <script setup>
 import {
   IconDashboard,
-  IconSettings,
-  IconHome2,
   IconDots,
   IconDoor,
   IconAlarm,
