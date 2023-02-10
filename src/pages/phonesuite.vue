@@ -72,7 +72,7 @@ onMounted(() => {
       @collapse="collapsed = $event"
       :collapsed="collapsed"
       dark
-      class="d-bg-white-600"
+      class="d-bg-white"
       :width="280"
     >
       <template #header>
@@ -81,7 +81,7 @@ onMounted(() => {
             <img src="@/assets/img/logo-icon.png" alt="" class="d-w-6" />
           </span>
           <span v-else class="d-py-2 d-block">
-            <img src="@/assets/img/phonesuite.png" class="d-w-44" alt="" />
+            <img src="@/assets/img/phonesuite-logo.svg" class="d-w-44" alt="" />
           </span>
         </a>
       </template>

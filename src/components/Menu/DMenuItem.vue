@@ -53,11 +53,7 @@ export default { inheritAttrs: false }
       }"
     >
       <span class="d-flex d-items-center d-w-full">
-        <span
-          class="d-px-4 d-py-2"
-          v-if="$slots.icon"
-          :class="{ 'd-text-white': dark }"
-        >
+        <span class="d-px-4 d-py-2" v-if="$slots.icon">
           <slot name="icon"></slot>
         </span>
         <span
