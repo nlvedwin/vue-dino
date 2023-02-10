@@ -34,7 +34,7 @@ provide('dark', {
 
 <template>
   <div
-    class="d-menu d-flex-col d-flex d-transition-all d-mx-auto"
+    class="d-menu d-flex-col d-flex d-transition-all d-mx-auto d-w-full"
     :class="{ 'd-bg-white': !dark, 'd-max-w-[fit-content]': collapsed }"
   >
     <slot></slot>

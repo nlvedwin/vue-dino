@@ -1,6 +1,8 @@
 <script setup>
 import { inject, ref, computed, onMounted, watch } from 'vue'
 import tippy from 'tippy.js'
+import 'tippy.js/dist/tippy.css'
+
 const { activeItem, updateActiveItem } = inject('activeItem')
 const { dark } = inject('dark')
 const { collapsed } = inject('collapsed')
@@ -28,23 +30,23 @@ const elementText = computed(() => {
 
 let tooltip = null
 onMounted(() => {
-  //   tooltip = tippy(itemElement.value, {
-  //     placement: 'right-end',
-  //     content: elementText.value,
-  //     arrow: true,
-  //     zIndex: 1000,
-  //     theme: 'light',
-  //   })
-  //   tooltip.disable()
+  tooltip = tippy(itemElement.value, {
+    placement: 'right-end',
+    content: elementText.value,
+    arrow: true,
+    zIndex: 1000,
+    theme: 'light',
+  })
+  tooltip.disable()
 })
 
-// watch(collapsed, () => {
-//   if (collapsed.value) {
-//     tooltip.enable()
-//   } else {
-//     tooltip.disable()
-//   }
-// })
+watch(collapsed, () => {
+  if (collapsed.value) {
+    tooltip.enable()
+  } else {
+    tooltip.disable()
+  }
+})
 </script>
 
 <template>

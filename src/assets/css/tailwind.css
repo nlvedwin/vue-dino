@@ -3,25 +3,25 @@
 @tailwind utilities;
 
 @layer base {
-    h1 {
-        @apply d-text-lg d-font-semibold d-mb-4;
-    }
+  h1 {
+    @apply d-text-lg d-font-semibold d-mb-4;
+  }
 
-    button[disabled],
-    .d-input-component[disabled],
-    a[disabled="true"] {
-        @apply d-opacity-50 d-pointer-events-none;
-    }
+  button[disabled],
+  .d-input-component[disabled],
+  a[disabled='true'] {
+    @apply d-opacity-50 d-pointer-events-none;
+  }
 
-    a {
-        @apply hover:d-underline d-cursor-pointer;
-    }
+  a {
+    @apply hover:d-underline d-cursor-pointer;
+  }
 }
 
 span.has-error {
-    @apply d-text-red-500 d-text-sm d-mt-1 d-block;
+  @apply d-text-red-500 d-text-sm d-mt-1 d-block;
 }
 
 input.has-error {
-    @apply d-border-red-500 d-border-2;
+  @apply d-border-red-500 d-border-2;
 }

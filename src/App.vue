@@ -1,9 +1,21 @@
 <script setup>
+import { onMounted, ref, provide } from 'vue'
+import { useRouter, useRoute } from 'vue-router'
 import { routes } from './routes'
+const showNav = ref(true)
+provide('showNav', {
+  showNav,
+  hideNav() {
+    showNav.value = false
+  },
+})
 </script>
 
 <template>
-  <div class="d-min-h-screen d-bg-gray-200 d-p-6 d-flex d-w-full">
+  <div
+    v-if="showNav"
+    class="d-min-h-screen d-bg-gray-200 d-p-6 d-flex d-w-full"
+  >
     <div
       class="d-mb-4 d-rounded-md d-w-[250px] d-mr-6 d-divide-y d-divide-gray-300"
     >
@@ -19,5 +31,8 @@ import { routes } from './routes'
     <div class="flex-1 d-w-full">
       <router-view></router-view>
     </div>
+  </div>
+  <div v-else>
+    <router-view></router-view>
   </div>
 </template>
