@@ -81,10 +81,14 @@ onMounted(() => {
   <div class="d-flex d-min-h-screen d-bg-gray-200">
     <d-sidebar :collapsed="collapsed" dark class="d-bg-white-600">
       <template #header>
-        <span v-if="collapsed">N</span>
-        <span v-else class="d-py-2 d-block">
-          <img src="@/assets/img/logo.png" alt="" />
-        </span>
+        <a>
+          <span v-if="collapsed">
+            <img src="@/assets/img/logo-icon.png" alt="" class="d-w-6" />
+          </span>
+          <span v-else class="d-py-2 d-block">
+            <img src="@/assets/img/logo.png" alt="" />
+          </span>
+        </a>
       </template>
       <d-menu v-model="active" :collapsed="collapsed">
         <template v-for="link in links">
