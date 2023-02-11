@@ -88,10 +88,8 @@ onMounted(() => {
           <d-menu-item
             v-if="!link.children"
             :value="link.name"
-            :class="{
-              'hover:d-bg-sky-100 hover:d-text-sky-500': true,
-              'd-bg-sky-100 d-text-sky-500': active === link.name,
-            }"
+            class="hover:d-bg-sky-100 hover:d-text-sky-500"
+            activeClass="d-bg-sky-100 d-text-sky-500 active-menu"
           >
             <template #icon>
               <component :is="link.icon"></component>
@@ -100,10 +98,8 @@ onMounted(() => {
           </d-menu-item>
           <d-submenu-item
             v-else
-            :class="{
-              'hover:d-bg-sky-100 hover:d-text-sky-500': true,
-              'd-bg-sky-100 d-text-sky-500': active === link.name,
-            }"
+            class="hover:d-bg-sky-100 hover:d-text-sky-500"
+            activeClass="d-bg-sky-100 d-text-sky-500 active-menu"
           >
             <template #icon>
               <component :is="link.icon"></component>
@@ -113,10 +109,8 @@ onMounted(() => {
               <d-menu-item
                 v-for="child in link.children"
                 :value="child.name"
-                :class="{
-                  'd-bg-sky-100 d-text-sky-500': active === child.name,
-                  'hover:d-bg-sky-100 hover:d-text-sky-500': true,
-                }"
+                class="hover:d-bg-sky-100 hover:d-text-sky-500"
+                activeClass="d-bg-sky-100 d-text-sky-500 active-menu"
               >
                 {{ child.name }}
               </d-menu-item>
