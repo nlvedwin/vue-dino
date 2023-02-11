@@ -1,5 +1,5 @@
 <script setup>
-import { ref, watch } from 'vue'
+import { onBeforeUnmount, onMounted, ref, watch } from 'vue'
 import { onClickOutside } from '@vueuse/core'
 const open = ref(false)
 const horizonTalPosition = ref('left')
@@ -33,6 +33,11 @@ const handleMouseover = () => {
 // if div is outside the view port log it
 const checkVisible = () => {
   const div = document.querySelector('.d-dropdown-card')
+
+  if (!div) {
+    return
+  }
+
   // check div if intercects with viewport
   const rect = div.getBoundingClientRect()
   const isVisible =
@@ -72,6 +77,21 @@ const handleClose = (e) => {
 const targetElement = ref(null)
 onClickOutside(targetElement, () => {
   open.value = false
+})
+
+onMounted(() => {
+  if (triggers.includes('hover')) {
+    const handleMouseover = (e) => {
+      if (!e.target.closest('.d-dropdown')) {
+        open.value = false
+      }
+    }
+
+    document.body.addEventListener('mouseover', handleMouseover)
+    onBeforeUnmount(() => {
+      document.body.removeEventListener('mouseover', handleMouseover)
+    })
+  }
 })
 </script>
 
