@@ -36,6 +36,7 @@ export default { inheritAttrs: false }
     :content="elementText"
     :options="{ placement: 'right-end' }"
     :disabled="!collapsed"
+    class="d-w-full"
   >
     <a
       @click="handleClick"

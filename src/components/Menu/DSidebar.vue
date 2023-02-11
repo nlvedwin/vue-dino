@@ -11,6 +11,7 @@ const props = defineProps({
     default: 260,
   },
   collapsed: Boolean,
+  collapsable: Boolean,
 })
 provide('collapsed', {
   collapsed: computed(() => props.collapsed),
@@ -23,8 +24,8 @@ provide('collapsed', {
     class="d-sidebar d-min-h-[500px] d-bg-white d-p-2 d-py-3 d-w-full d-transition-all d-flex d-flex-col d-flex-shrink-0"
   >
     <div
-      v-if="$slots.header"
-      class="d-mb-4 d-px-4 d-font-semibold d-tracking-wide d-mx-auto"
+      v-if="collapsable || $slots.header"
+      class="d-mb-4 d-px-4 d-font-semibold d-tracking-wide d-mx-auto d-w-full"
       :class="[
         { 'd-text-gray-100': dark, 'd-text-gray-600': !dark },
         collapsed
@@ -32,7 +33,7 @@ provide('collapsed', {
           : 'd-flex d-items-center d-space-x-3',
       ]"
     >
-      <span class="d-flex-shrink-0">
+      <span v-if="$slots.header" class="d-flex-shrink-0 d-flex-1">
         <slot name="header" v-bind="{ collapsed }"></slot>
       </span>
       <d-tooltip

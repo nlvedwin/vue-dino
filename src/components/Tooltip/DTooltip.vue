@@ -45,7 +45,7 @@ onMounted(() => {
 </script>
 
 <template>
-  <span class="d-block d-w-full" ref="containerElement">
+  <span class="d-inline-block" ref="containerElement">
     <slot></slot>
   </span>
 </template>
