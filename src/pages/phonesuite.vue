@@ -129,6 +129,7 @@ onMounted(() => {
         <d-dropdown class="d-w-full">
           <template #trigger>
             <d-tooltip
+              class="d-w-full"
               :disabled="!collapsed"
               content="Edwin Encomienda <br> edwin@netlinkvoice.com"
               :options="{ placement: 'right-end', allowHTML: true }"
