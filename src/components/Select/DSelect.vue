@@ -112,7 +112,7 @@ onMounted(() => {
 }
 
 .custom-select:deep() .choices__list--multiple .choices__item {
-  @apply d-bg-primary-500 d-rounded-lg d-border-none;
+  @apply d-bg-primary-500 d-rounded-lg d-border-none d-font-semibold;
 }
 
 .custom-select:deep() .choices__list--multiple button {

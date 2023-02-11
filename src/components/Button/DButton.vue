@@ -34,7 +34,7 @@ const selectedSize = defaults.size[props.size]
       selectedSize,
     ]"
     type="button"
-    class="d-px-[1rem] d-transition d-duration-300 d-ease-in-out d-inline-flex d-items-center d-rounded-md d-text-sm d-font-semibold d-shadow-sm focus:d-outline-none"
+    class="d-px-3.5 d-transition d-duration-300 d-ease-in-out d-inline-flex d-items-center d-rounded-md d-text-sm d-font-semibold d-shadow-sm focus:d-outline-none"
   >
     <span class="d-mx-auto d-inline-flex d-items-center d-space-x-2">
       <Spinner
