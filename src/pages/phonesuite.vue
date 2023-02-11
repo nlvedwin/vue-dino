@@ -76,7 +76,7 @@ onMounted(() => {
       <template #header>
         <a>
           <span v-if="collapsed">
-            <img src="@/assets/img/phonesuite-icon.svg" class="d-w-full" />
+            <img src="@/assets/img/phonesuite-icon.svg" class="d-w-8" />
           </span>
           <span v-else class="d-py-2 d-block">
             <img src="@/assets/img/phonesuite-logo.svg" class="d-w-44" alt="" />
