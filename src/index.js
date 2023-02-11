@@ -7,8 +7,8 @@ const dinoComponentsList = components?.default
 
 const DinoComponents = {
   install(app, options = {}) {
-    if (options.colors) {
-      useColors().setCustomPrimaryColors(options?.theme?.colors)
+    if (options.theme?.colors) {
+      useColors().setCustomPrimaryColors(options.theme?.colors)
     }
 
     Object.keys(dinoComponentsList).forEach((name) => {
