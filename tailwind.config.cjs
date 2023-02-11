@@ -25,5 +25,17 @@ module.exports = {
       },
     },
   },
+  safelist: [
+    'd-bg-primary-50',
+    'd-bg-primary-100',
+    'd-bg-primary-200',
+    'd-bg-primary-300',
+    'd-bg-primary-400',
+    'd-bg-primary-500',
+    'd-bg-primary-600',
+    'd-bg-primary-700',
+    'd-bg-primary-800',
+    'd-bg-primary-900',
+  ],
   plugins: [require('@tailwindcss/forms')],
 }
