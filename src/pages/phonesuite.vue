@@ -9,8 +9,6 @@ import {
   IconUsers,
   IconHistory,
   IconQuestionCircle,
-  IconLayoutSidebarLeftCollapse,
-  IconLayoutSidebarRightCollapse,
 } from '@tabler/icons-vue'
 import { ref, onMounted, inject } from 'vue'
 
@@ -71,13 +69,14 @@ onMounted(() => {
     <d-sidebar
       @collapse="collapsed = $event"
       :collapsed="collapsed"
+      :collapsable="true"
       class="d-bg-white"
-      :width="280"
+      :width="270"
     >
       <template #header>
         <a>
           <span v-if="collapsed">
-            <img src="@/assets/img/logo-icon.png" alt="" class="d-w-6" />
+            <img src="@/assets/img/phonesuite-icon.svg" class="d-w-full" />
           </span>
           <span v-else class="d-py-2 d-block">
             <img src="@/assets/img/phonesuite-logo.svg" class="d-w-44" alt="" />
@@ -172,10 +171,8 @@ onMounted(() => {
     <div>
       <div class="d-p-6">
         <div>
-          Lorem ipsum dolor, sit amet consectetur adipisicing elit. Ab,
-          cupiditate. Nobis, sunt recusandae at, aspernatur necessitatibus
-          corrupti quis similique cumque harum eos atque officiis blanditiis
-          velit laboriosam! Eligendi, repellat itaque.
+          <div class="d-text-2xl d-tracking-wide d-font-semibold">Rooms</div>
+          <div class="text-sm">February 10, 2023 7:11 PM</div>
         </div>
       </div>
     </div>

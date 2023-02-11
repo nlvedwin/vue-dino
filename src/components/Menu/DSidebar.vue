@@ -37,18 +37,18 @@ provide('collapsed', {
         <slot name="header" v-bind="{ collapsed }"></slot>
       </span>
       <d-tooltip
+        v-if="collapsable"
         :content="collapsed ? 'Open' : 'Collapse'"
         :options="{ placement: 'right-end', delay: 300 }"
+        :class="{ 'd-mx-auto': collapsed }"
       >
         <span @click="$emit('collapse', !collapsed)">
           <IconLayoutSidebarLeftCollapse
             v-if="!collapsed"
-            size="25"
             class="hover:d-text-primary-500 d-cursor-pointer"
           />
           <IconLayoutSidebarRightCollapse
             v-else
-            size="25"
             class="hover:d-text-primary-500 d-cursor-pointer"
           />
         </span>
