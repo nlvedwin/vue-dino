@@ -26,7 +26,7 @@ export default {
     @click.stop="open = !open"
     class="d-submenu d-bg-transparent d-flex d-flex-col d-items-center d-select-none d-flex-1 d-relative"
   >
-    <d-menu-item @mouseover="showDropdown = true" :class="$attrs.class">
+    <d-menu-item @mouseover="showDropdown = true" v-bind="$attrs">
       <template #icon>
         <slot name="icon"></slot>
       </template>

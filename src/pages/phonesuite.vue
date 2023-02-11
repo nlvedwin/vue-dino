@@ -88,7 +88,7 @@ onMounted(() => {
           <d-menu-item
             v-if="!link.children"
             :value="link.name"
-            class="hover:d-bg-sky-100 hover:d-text-sky-500"
+            inActiveClass="hover:d-bg-sky-100 hover:d-text-sky-500"
             activeClass="d-bg-sky-100 d-text-sky-500 active-menu"
           >
             <template #icon>
@@ -98,7 +98,7 @@ onMounted(() => {
           </d-menu-item>
           <d-submenu-item
             v-else
-            class="hover:d-bg-sky-100 hover:d-text-sky-500"
+            inActiveClass="hover:d-bg-sky-100 hover:d-text-sky-500"
             activeClass="d-bg-sky-100 d-text-sky-500 active-menu"
           >
             <template #icon>
@@ -109,7 +109,7 @@ onMounted(() => {
               <d-menu-item
                 v-for="child in link.children"
                 :value="child.name"
-                class="hover:d-bg-sky-100 hover:d-text-sky-500"
+                inActiveClass="hover:d-bg-sky-100 hover:d-text-sky-500"
                 activeClass="d-bg-sky-100 d-text-sky-500 active-menu"
               >
                 {{ child.name }}
